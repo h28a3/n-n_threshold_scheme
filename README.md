@@ -1,1 +1,1 @@
-# -n-n-_threshold_scheme
+# (n,n)しきい値法
