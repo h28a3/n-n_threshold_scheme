@@ -1,4 +1,3 @@
-
 #-------01/2-------#
 def mapping(share):
     leakage = []
@@ -12,7 +11,7 @@ def mapping(share):
         leakage.append(x)
     return leakage
 
-#-------01/2-------#
+#-------0/1/2-------#
 # def mapping(share):
     # leakage = []
     # for c in share:
@@ -31,15 +30,15 @@ import itertools
 import pandas as pd
 import numpy as np
 
-#Q‰ÁÒ”
+#å‚åŠ è€…æ•°
 n = 5
-#—LŒÀ‘Ì‚ÌƒTƒCƒY
+#æœ‰é™ä½“ã®ã‚µã‚¤ã‚º
 p = 3
 
-#leakage‚ÌW‡
+#leakageã®é›†åˆ
 leakages = []
 
-#leakage‚Ì‘S—ñ‹“
+#leakageã®å…¨åˆ—æŒ™
 pat = []
 nums = [0,1]
 for c in itertools.product(nums, repeat = n):
@@ -52,7 +51,7 @@ for i in range(p):
     #secret
     s = i
     
-    #share‚ÌW‡
+    #shareã®é›†åˆ
     share = []
     for c in itertools.product(nums, repeat = n - 1):
         x = []
@@ -63,33 +62,33 @@ for i in range(p):
         x.append((s - sum_x) % p)
         share.append(x)
         
-    #leakage‚Ì¶¬
+    #leakageã®ç”Ÿæˆ
     leakage = mapping(share)
     
-    #share‚P‚Â‚²‚Æ‚ÌŠm—¦
+    #shareï¼‘ã¤ã”ã¨ã®ç¢ºç‡
     pr = p ** (1 - n)
     
-    #leakage‚Ì‘Sƒpƒ^[ƒ“‚ÌŒÂ”ƒJƒEƒ“ƒg
+    #leakageã®å…¨ãƒ‘ã‚¿ãƒ¼ãƒ³ã®å€‹æ•°ã‚«ã‚¦ãƒ³ãƒˆ
     counter = []
     for j in range(len(pat)):
         counter.append(leakage.count(pat[j]))  
     
     #print(counter)
     
-    #leakage‚Ì‘Sƒpƒ^[ƒ“‚ÌŠm—¦ŒvZ
+    #leakageã®å…¨ãƒ‘ã‚¿ãƒ¼ãƒ³ã®ç¢ºç‡è¨ˆç®—
     leakage = []
     for j in range(len(counter)):
         leakage.append(pr * counter[j])
     leakages.append(leakage)
 
-#secret‚ğŒÅ’è‚µ‚½‚Æ‚«‚Ì“Œv‹——£
+#secretã‚’å›ºå®šã—ãŸã¨ãã®çµ±è¨ˆè·é›¢
 def SD(x,y):
     ans = 0
     for i in range(len(x)):
         ans = ans + abs(x[i] - y[i])
     return ans
 
-#‘S‚Ä‚Ìsecret‚Ì“Œv‹——£
+#å…¨ã¦ã®secretã®çµ±è¨ˆè·é›¢
 def SD_array(x):
     ans = []
     for i in range(len(x)):
