@@ -45,7 +45,6 @@ for c in itertools.product(nums, repeat = n):
     pat.append(list(c))
 
 nums = range(p)
-#print(pat)
 
 for i in range(p):
     #secret
