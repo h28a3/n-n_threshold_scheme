@@ -72,8 +72,6 @@ for i in range(p):
     for j in range(len(pat)):
         counter.append(leakage.count(pat[j]))  
     
-    #print(counter)
-    
     #leakageの全パターンの確率計算
     leakage = []
     for j in range(len(counter)):
